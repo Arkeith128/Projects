@@ -1,3 +1,3 @@
 # Projects
 
-Contains random projects created by me, using Eclipse.
+Random projects created by me.
