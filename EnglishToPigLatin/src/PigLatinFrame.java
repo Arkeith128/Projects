@@ -1,7 +1,9 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -37,7 +39,10 @@ public class PigLatinFrame extends JFrame implements ActionListener{
 		
 		englishTextArea = new JTextArea(5,20);
 		englishTextArea.setLineWrap(true);
-		mainContent.add(englishTextArea);
+		//will make my text area scrollable
+		JScrollPane scroll = new JScrollPane (englishTextArea);
+		scroll.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
+		mainContent.add(scroll);
 		
 		JLabel outputLabel = new JLabel("Pig Latin Translation:");
 		mainContent.add(outputLabel);
@@ -45,7 +50,8 @@ public class PigLatinFrame extends JFrame implements ActionListener{
 		pigLatinTextArea = new JTextArea(5,20);
 		pigLatinTextArea.setLineWrap(true);
 		pigLatinTextArea.setEditable(false);
-		mainContent.add(pigLatinTextArea);
+		scroll = new JScrollPane(pigLatinTextArea);
+		mainContent.add(scroll);
 		
 		
 		//create a button that,when clicked, will translate text to pig latin 
