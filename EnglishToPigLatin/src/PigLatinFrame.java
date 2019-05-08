@@ -81,59 +81,63 @@ public class PigLatinFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {		
 		
 		String sentence = englishTextArea.getText();
-		int i = 0;
-		int diff = 0; //this will help in telling us how far to advance the counter
-		int startIndex; //beginning of the word
-		int endIndex; //first space after the word
-		String word; //original word before Pig Latin translation
-		String pgWord; //new word after Pig Latin translation
-
-		while(i<=sentence.length()) {
+		if(sentence.length() == 0)
+			pigLatinTextArea.setText("Please type something to translate");
+		else {
+			int i = 0;
+			int diff = 0; //this will help in telling us how far to advance the counter
+			int startIndex; //beginning of the word
+			int endIndex; //first space after the word
+			String word; //original word before Pig Latin translation
+			String pgWord; //new word after Pig Latin translation
+	
+			while(i<=sentence.length()) {
+				
+				//if the current character is a letter or number
+				if (Character.isLetterOrDigit(sentence.charAt(i))) {
+					startIndex = i; 
+					
+					endIndex = sentence.indexOf(' ', i);
+					
+					if(endIndex <= -1) {
+						endIndex = sentence.length(); 					
+					}
+					
+					//the substring will start where the first valid character starts and
+					//ends at the specified index -1
+					word = sentence.substring(startIndex,endIndex);	
+					
+					//convert word to Pig Latin depending on first letter
+					pgWord = convert(word);
+					
+					//take the original word and subtract its length from the new word				
+					diff = pgWord.length() - word.length();
+					
+					//start from beginning of sentence and stop right before the word
+					//append that string to the translated word
+					//append the rest of the old sentence to that word starting at the specified index
+					sentence = sentence.substring(0, startIndex) + pgWord + sentence.substring(endIndex);
+					
+					//to keep from going one char at a time, this will jump i to the next character
+					//endIndex will be where the original word ends. diff will be after the 'ay' is appended
+					//i should now be sitting at a space. the +1 just moves it one extra character
+					i = endIndex+diff+1; 								
+				}
+				else if (Character.isWhitespace(sentence.charAt(i))){
+					i++; //current character is a space, try the next one
+				}
+				else {
+					//skip translating this word because it doesn't start with a valid character
+					endIndex = sentence.indexOf(' ', i);
+					if(endIndex <= -1) {
+						endIndex = sentence.length(); 					
+					}
+					i = endIndex+1;
+				}
+			}
 			
-			//if the current character is a letter or number
-			if (Character.isLetterOrDigit(sentence.charAt(i))) {
-				startIndex = i; 
-				
-				endIndex = sentence.indexOf(' ', i);
-				
-				if(endIndex <= -1) {
-					endIndex = sentence.length(); 					
-				}
-				
-				//the substring will start where the first valid character starts and
-				//ends at the specified index -1
-				word = sentence.substring(startIndex,endIndex);	
-				
-				//convert word to Pig Latin depending on first letter
-				pgWord = convert(word);
-				
-				//take the original word and subtract its length from the new word				
-				diff = pgWord.length() - word.length();
-				
-				//start from beginning of sentence and stop right before the word
-				//append that string to the translated word
-				//append the rest of the old sentence to that word starting at the specified index
-				sentence = sentence.substring(0, startIndex) + pgWord + sentence.substring(endIndex);
-				
-				//to keep from going one char at a time, this will jump i to the next character
-				//endIndex will be where the original word ends. diff will be after the 'ay' is appended
-				//i should now be sitting at a space. the +1 just moves it one extra character
-				i = endIndex+diff+1; 								
-			}
-			else if (Character.isWhitespace(sentence.charAt(i))){
-				i++; //current character is a space, try the next one
-			}
-			else {
-				//skip translating this word because it doesn't start with a valid character
-				endIndex = sentence.indexOf(' ', i);
-				if(endIndex <= -1) {
-					endIndex = sentence.length(); 					
-				}
-				i = endIndex+1;
-			}
+			pigLatinTextArea.setText(sentence);
 		}
-		
-		pigLatinTextArea.setText(sentence);
 	}
 	
 	/**
