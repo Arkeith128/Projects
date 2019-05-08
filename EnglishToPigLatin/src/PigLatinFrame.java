@@ -27,7 +27,7 @@ public class PigLatinFrame extends JFrame implements ActionListener{
 		setSize(WIDTH,HEIGHT);
 		setLocationRelativeTo(null);
 		setLayout(new FlowLayout());
-		
+		setResizable(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
