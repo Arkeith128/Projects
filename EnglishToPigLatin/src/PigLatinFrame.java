@@ -79,8 +79,10 @@ public class PigLatinFrame extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {		
-		
+		//grab what's in the text area and save it to a string
 		String sentence = englishTextArea.getText();
+		
+		//if the text area is blank when Translate is pressed, output a message
 		if(sentence.length() == 0)
 			pigLatinTextArea.setText("Please type something to translate");
 		else {
