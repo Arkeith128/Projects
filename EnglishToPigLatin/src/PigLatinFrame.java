@@ -153,13 +153,13 @@ public class PigLatinFrame extends JFrame implements ActionListener{
 		//return true if the first character is aeiou ignoring case
 		switch(first) {
 			case 'a':
-			case 'A': return true;
+			case 'A':
 			case 'e':
-			case 'E': return true;
+			case 'E':
 			case 'i':
-			case 'I': return true;
+			case 'I':
 			case 'o':
-			case 'O': return true;
+			case 'O':
 			case 'u':
 			case 'U': return true;
 			default: return false;
