@@ -9,6 +9,7 @@ import java.util.List;
 public class Ant extends Organism {
   /** Constant defining the number of moves required before an Ant can breed */
 	public static final int ANTBREED = 3;	
+	/** Number of moves since last breeding */
 	private int breedTicks;
 
 	/** Empty Constructor */
