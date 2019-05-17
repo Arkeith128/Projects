@@ -1,5 +1,5 @@
 
-/** Question4Simulation.java
+/** Simulation.java
  *  Initializes the simulation so the world will have 20 ants and 10 
  *   Doodlebugs.  Each are placed in random locations.  Once initialized, 
  *   runs the simulation with each time lapse being initiated by a 
@@ -7,7 +7,7 @@
  */
 import java.util.Scanner;
 
-public class Question4Simulation {
+public class Simulation {
    public static final int INITIAL_ANTS = 20;
    public static final int INITIAL_BUGS = 10;
 
@@ -41,7 +41,7 @@ public class Question4Simulation {
          }
       }            
 
-      // Run simulation forever, until user cancels (Ctrl-C)
+      // Run simulation forever, until user cancels
       while (true)  {
          w.displayWorld();
          w.SimulateOneStep();
