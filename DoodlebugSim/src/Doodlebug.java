@@ -39,7 +39,7 @@ public class Doodlebug extends Organism {
 	
  
 	/** Method defining what happens when a Doodlebug moves.
-	 *  This method must randomly search all adjacent locations for a cell
+	 *  This method will randomly search all adjacent locations for a cell
 	 *   occupied by an Ant (it wants to move where it can eat).
 	 *  If a cell with an Ant is not found, this Doodlebug moves as an Ant,
 	 *   picking a single random location and not moving if this chosen

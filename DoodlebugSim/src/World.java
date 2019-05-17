@@ -3,9 +3,7 @@
  * The World class stores data about the world by creating a
  * WORLDSIZE by WORLDSIZE array of type Organism.
  * Null indicates an empty spot, otherwise a valid object
- * indicates an ant or doodlebug.  To determine which,
- * invoke the virtual function getType of Organism that should return
- * ANT if the class is of type ant, and DOODLEBUG otherwise.
+ * indicates an ant or doodlebug.  
  */
 public class World {
 	public static final int WORLDSIZE = 20;

@@ -29,7 +29,7 @@ public class Ant extends Organism {
 	}
 
 	/** Method defining what happens when an Ant moves.
-	 *  This method must choose a single location randomly.  If it is 
+	 *  This method will choose a single location randomly.  If it is 
 	 *   occupied or off the grid, the Ant will not move anywhere.
 	 */
 	public void move() {
@@ -104,7 +104,7 @@ public class Ant extends Organism {
 	}
 
 	/** Method defining what happens when an Ant breeds. 
-	 *  - This method must check that the Ant is able to breed and 
+	 *  - This method will check that the Ant is able to breed and 
 	 *     may reset it if the Ant breeds successfully.
 	 *  - The Ant must search all locations around it randomly.
 	 */
